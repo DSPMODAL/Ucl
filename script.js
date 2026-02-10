@@ -1,47 +1,10 @@
-// 🔥 Firebase Config (APNA CONFIG DALO)
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBIGoh9yZJ1r_VIkJZi0YI9gJkQ9DbTr60",
+  authDomain: "my-first-login-f35e7.firebaseapp.com",
+  projectId: "my-first-login-f35e7",
+  storageBucket: "my-first-login-f35e7.firebasestorage.app",
+  messagingSenderId: "903114259635",
+  appId: "1:903114259635:web:8d97ab4004f4786309c4c6",
+  measurementId: "G-41KRVQNLT8"
 };
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-// 📱 Mobile ko email jaisa use karenge
-function mobileToEmail(mobile) {
-  return mobile + "@mobilelogin.com";
-}
-
-// 📝 Register
-function register() {
-  const mobile = document.getElementById("mobile").value;
-  const password = document.getElementById("password").value;
-
-  auth.createUserWithEmailAndPassword(
-    mobileToEmail(mobile),
-    password
-  )
-  .then(() => {
-    document.getElementById("msg").innerHTML =
-      "✅ Registration Successful";
-  })
-  .catch(err => alert(err.message));
-}
-
-// 🔑 Login
-function login() {
-  const mobile = document.getElementById("mobile").value;
-  const password = document.getElementById("password").value;
-
-  auth.signInWithEmailAndPassword(
-    mobileToEmail(mobile),
-    password
-  )
-  .then(() => {
-    document.getElementById("msg").innerHTML =
-      "🎉 Login Successful";
-  })
-  .catch(err => alert("❌ Wrong mobile or password"));
-}
